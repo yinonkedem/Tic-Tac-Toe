@@ -1,0 +1,15 @@
+yinonkedem
+208670794
+
+1)
+Strategies:
+Whatever - put mark in a random valid position.
+Clever - put marks by order from (0,0) position to (lastPosition, lastPosition).
+Genius - put marks by order from (lastPosition, lastPosition) position to (0,0) against clever,
+         if the clever is about to win the Genius block him.
+         against the random the Genius play like the Clever.
+2)
+a. The benefits of the players classes that implement the same interface is:
+we can create a several players that act the same (at that case - put mark in the board),
+but with difference strategy.
+b. The Pillars that this project design is represent are: Polymorphism and Encapsulation.
