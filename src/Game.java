@@ -171,8 +171,6 @@ class Game{
         return curSizeStreak;
     }
 
-//    private int checkAllDirections(int row, int col, Board board, Mark markToCheck, String );
-
     // check Cols streak
     private int findMaxStreakCols(int row, int col, Board board, Mark markToCheck) {
         int curSizeStreak = 1;
