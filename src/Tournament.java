@@ -13,9 +13,9 @@
 class Tournament{
     private final int numberOfRounds;
     private final Renderer renderer;
-    Player[] players = new Player[] {null, null};
-    int[] playerWins = new int[2];
-    int ties = 0;
+    private Player[] players = new Player[] {null, null};
+    private int[] playerWins = new int[2];
+    private int ties = 0;
 
     /**
      * Constructs a Tournament instance with the specified number of rounds, renderer, and players.

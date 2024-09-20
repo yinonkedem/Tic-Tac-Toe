@@ -31,7 +31,7 @@ class Board {
     /**
      * Initializes the board with blank marks.
      */
-    void initBoard(){
+    private void initBoard(){
         for (int row = 0; row < this.getSize(); row++){
             for (int col = 0; col < this.getSize(); col++){
                 this.board_table[row][col] = Mark.BLANK;

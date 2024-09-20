@@ -11,7 +11,7 @@ class Game{
 
     private final static int DEFAULT_WIN_STREAK = 3;
     private final static int MINIMUM_WIN_STREAK = 2;
-    int requireStreakToWin;
+    private int requireStreakToWin;
     private int numberOfCellsAreOccupied = 0;
     private final Board board;
     private final Player player1;
@@ -138,7 +138,7 @@ class Game{
         int curSizeStreak = 1;
         // check Cols streak
         if (validCell(row, col+1) && board.getMark(row, col+1) == markToCheck){
-            curSizeStreak += findMaxStreakCols(row, col+1, board, markToCheck);
+            curSizeStreak += findMaxStreak(row, col+1, board, markToCheck, 0, 1);
             if (curSizeStreak == this.getWinStreak()){
                 return curSizeStreak;
             }
@@ -146,7 +146,7 @@ class Game{
         }
         // check Rows streak
         if (validCell(row+1, col) && board.getMark(row+1, col) == markToCheck){
-            curSizeStreak += findMaxStreakRows(row+1, col, board, markToCheck);
+            curSizeStreak += findMaxStreak(row+1, col, board, markToCheck, 1, 0);
             if (curSizeStreak == this.getWinStreak()){
                 return curSizeStreak;
             }
@@ -154,7 +154,7 @@ class Game{
         }
         // check right Diagonal streak
         if (validCell(row+1, col+1) && board.getMark(row+1, col+1) == markToCheck){
-            curSizeStreak += findMaxStreakRightDiagonal(row+1, col+1, board, markToCheck);
+            curSizeStreak += findMaxStreak(row+1, col+1, board, markToCheck, 1, 1);
             if (curSizeStreak == this.getWinStreak()){
                 return curSizeStreak;
             }
@@ -162,7 +162,7 @@ class Game{
         }
         // check left Diagonal streak
         if (validCell(row+1, col-1) && board.getMark(row+1, col-1) == markToCheck){
-            curSizeStreak += findMaxStreakLeftDiagonal(row+1, col-1, board, markToCheck);
+            curSizeStreak += findMaxStreak(row+1, col-1, board, markToCheck, 1, -1);
             if (curSizeStreak == this.getWinStreak()){
                 return curSizeStreak;
             }
@@ -171,40 +171,16 @@ class Game{
         return curSizeStreak;
     }
 
-//    private int checkAllDirections(int row, int col, Board board, Mark markToCheck, String );
 
     // check Cols streak
-    private int findMaxStreakCols(int row, int col, Board board, Mark markToCheck) {
+    private int findMaxStreak(int row, int col, Board board, Mark markToCheck, int newRow, int newCol) {
         int curSizeStreak = 1;
-        if (validCell(row, col+1) && board.getMark(row, col+1) == markToCheck){
-            curSizeStreak += findMaxStreakCols(row, col+1, board, markToCheck);
+        if (validCell(row+newRow, col+newCol) && board.getMark(row+newRow, col+newCol) == markToCheck){
+            curSizeStreak += findMaxStreak(row+newRow, col+newCol, board, markToCheck, newRow, newCol);
         }
         return curSizeStreak;
     }
-    // check Rows streak
-    private int findMaxStreakRows(int row, int col, Board board, Mark markToCheck) {
-        int curSizeStreak = 1;
-        if (validCell(row+1, col) && board.getMark(row+1, col) == markToCheck){
-            curSizeStreak += findMaxStreakRows(row+1, col, board, markToCheck);
-        }
-        return curSizeStreak;
-    }
-    // check right Diagonal streak
-    private int findMaxStreakRightDiagonal(int row, int col, Board board, Mark markToCheck) {
-        int curSizeStreak = 1;
-        if (validCell(row+1, col+1) && board.getMark(row+1, col+1) == markToCheck){
-            curSizeStreak += findMaxStreakRightDiagonal(row+1, col+1, board, markToCheck);
-        }
-        return curSizeStreak;
-    }
-    // check left Diagonal streak
-    private int findMaxStreakLeftDiagonal(int row, int col, Board board, Mark markToCheck) {
-        int curSizeStreak = 1;
-        if (validCell(row+1, col-1) && board.getMark(row+1, col-1) == markToCheck){
-            curSizeStreak += findMaxStreakLeftDiagonal(row+1, col-1, board, markToCheck);
-        }
-        return curSizeStreak;
-    }
+
     /**
      * Checks if a given cell position is valid within the bounds of the game board.
      * @param row The row index of the cell.

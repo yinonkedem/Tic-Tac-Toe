@@ -63,7 +63,7 @@ class HumanPlayer implements Player{
      * @param board The game board.
      * @return true if the coordinates are within the valid range, false otherwise.
      */
-    public boolean InputInRange(int row, int col, Board board){
+    private boolean InputInRange(int row, int col, Board board){
         return col >= 0 && col <= board.getSize() - 1 && row >= 0 && row <= board.getSize() - 1;
     }
     /**
@@ -73,7 +73,7 @@ class HumanPlayer implements Player{
      * @param board The game board.
      * @return true if the cell is empty, false otherwise.
      */
-    public boolean emptyCell(int row, int col, Board board){
+    private boolean emptyCell(int row, int col, Board board){
         return board.getMark(row, col) == Mark.BLANK;
     }
 }
