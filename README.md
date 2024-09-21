@@ -35,6 +35,15 @@ java Tournament [round count] [size] [win_streak] [render target: console/none] 
 To start a game with 5 rounds on a 5x5 board, requiring 4 marks in a row to win, output to console, with both players as human:
 **java Tournament 5 5 4 console human human**
 
+## Testing
+This project includes a series of unit tests to ensure the functionality and integrity of the game logic.
+
+1. **Running Tests:**
+   To run the tests, navigate to the project directory and compile the test files along with the game files, then execute the tests using Java:
+   **javac Game.java Ex1Tests.java java Ex1Tests**
+
+Ensure that you have JUnit installed and configured in your development environment to execute the tests.
+
 ## Contact
 For any inquiries or feedback, please contact:
 - **Email:** [yinonked@gmail.com](mailto:yinonked@gmail.com)
