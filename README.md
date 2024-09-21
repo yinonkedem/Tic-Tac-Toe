@@ -1,7 +1,7 @@
 # Tic-Tac-Toe Game in Java
 
 ## Description
-This project is a Java implementation of the classic Tic-Tac-Toe game, playable via command line. It features a two-player mode with an advanced backtracking mechanism for win detection, offering a robust and fair gameplay experience.
+This project is a Java implementation of the classic Tic-Tac-Toe game, playable via command line. It features a two-player mode **with an advanced backtracking mechanism for win detection**, offering a robust and fair gameplay experience.
 
 ## Features
 - **Two-Player Mode:** Engage in a competitive game with another player.
@@ -33,7 +33,7 @@ java Tournament [round count] [size] [win_streak] [render target: console/none] 
 
 **Example Command:**
 To start a game with 5 rounds on a 5x5 board, requiring 4 marks in a row to win, output to console, with both players as human:
-java Tournament 5 5 4 console human human
+**java Tournament 5 5 4 console human human**
 
 ## Contact
 For any inquiries or feedback, please contact:
